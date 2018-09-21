@@ -26,6 +26,9 @@ func main() {
 		panic(err)
 	}
 
+	//set gin mode
+	gin.SetMode(viper.GetString("runmode"))
+
 	//create the Gin engine
 	g := gin.New()
 
@@ -51,6 +54,7 @@ func main() {
 
 
 func pingServer() error {
+
 	for i := 0; i < viper.GetInt("max_ping_count"); i++ {
 		//ping the server by sending a get request to `/headlth `
 		resp, err := http.Get(viper.GetString("url") + "/sd/health")
@@ -63,7 +67,6 @@ func pingServer() error {
 		log.Panicf("Waiting for the router,retry in 1 second")
 		time.Sleep(time.Second)
 	}
-
 	return errors.New("Connot connet to the router")
 
 }
