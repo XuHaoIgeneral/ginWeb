@@ -1,0 +1,5 @@
+runmode: debug
+addr: :8888
+name: apiserver
+url: http://0.0.0.0:8888
+max_ping_count: 10
