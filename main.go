@@ -19,9 +19,9 @@ var (
 
 
 func main() {
-	pflag.Parse()
 
-	//init config
+	pflag.Parse()
+	//init config about viper
 	if err:=config.Init(*cfg);err!=nil{
 		panic(err)
 	}
