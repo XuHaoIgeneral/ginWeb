@@ -1,10 +1,10 @@
 package vaptcha
 
 type Vaotcha struct {
-	Challenge string `json:"challenge"`
-	V string `json:"v"`
-	Action string `json:"action"`
-	Callback string `json:"callback"`
+	Challenge string `form:"challenge" json:"challenge" binding:"-"`
+	V string `form:"v" json:"v" binding:"-"`
+	Action string `form:"action" json:"action" binding:"required"`
+	Callback string `form:"callback" json:"callback" binding:"required"`
 }
 
 type VaKey struct {

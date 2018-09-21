@@ -5,7 +5,6 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"github.com/gin-gonic/gin"
-	"github.com/mitchellh/mapstructure"
 	"log"
 	"math/rand"
 	"net/http"
@@ -24,14 +23,18 @@ var imgid string
 func Outage(c *gin.Context) {
 	var vaotcha Vaotcha
 
-	vaotchaDict := make(map[string]string)
-	vaotchaDict["action"] = c.Query("action")
-	vaotchaDict["callback"] = c.Query("callback")
-	vaotchaDict["v"] = c.DefaultQuery("v", "")
-	vaotchaDict["challenge"] = c.DefaultQuery("challenge", "")
+	//vaotchaDict := make(map[string]string)
+	//vaotchaDict["action"] = c.Query("action")
+	//vaotchaDict["callback"] = c.Query("callback")
+	//vaotchaDict["v"] = c.DefaultQuery("v", "")
+	//vaotchaDict["challenge"] = c.DefaultQuery("challenge", "")
+	//
+	//if err := mapstructure.Decode(vaotchaDict, &vaotcha); err != nil {
+	//	log.Panic("this is xxxx")
+	//}
 
-	if err := mapstructure.Decode(vaotchaDict, &vaotcha); err != nil {
-		log.Panic("this is xxxx")
+	if err:=c.ShouldBindQuery(&vaotcha);err!=nil{
+		log.Print("binding is fail")
 	}
 
 	switch vaotcha.Action {
