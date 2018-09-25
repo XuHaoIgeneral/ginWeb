@@ -2,7 +2,7 @@ package router
 
 import (
 	"ginWeb/router/middleware"
-	"ginWeb/vaptcha"
+	"ginWeb/handler/vaptcha"
 	"ginweb/handler/sd"
 	"github.com/gin-gonic/gin"
 	"net/http"
@@ -38,5 +38,6 @@ func Load(g *gin.Engine,mv ...gin.HandlerFunc) *gin.Engine  {
 		vap.GET("/downtime",vaptcha.Outage)
 
 	}
+
 	return g
 }
