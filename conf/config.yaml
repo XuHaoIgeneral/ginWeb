@@ -12,3 +12,8 @@ log:
   log_rotate_date: 1
   log_rotate_size: 2048
   log_backup_count: 7
+pgsql:
+  name: postgres
+  psssword: 123456
+  port: 5432
+  defaultDB: postgres
