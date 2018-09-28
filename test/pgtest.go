@@ -13,7 +13,7 @@ import (
 
 const (
 	host     = "localhost"
-	port     =  5432
+	port     = 5432
 	user     = "postgres"
 	password = "123"
 	dbName   = "pg_test"
@@ -25,107 +25,117 @@ func main() {
 
 	selectAll()
 
-	DeleteTest(20)
+	DeleteTest(21)
 
-	t:=&test{20,20}
-    err:=Insertto(t)
+	t := &test{20, 20}
+	err := Insertto(t)
 	if err != true {
-		glog.Infof("insert is fail with action %s",err)
+		glog.Infof("insert is fail with action %s", err)
 	}
 
-    selectTest(23)
+	selectTest(23)
 
-    t.Num=21
-    UpdateTest(t)
+	t.Num = 21
+	UpdateTest(t)
 
-    selectAll()
+	selectAll()
 }
 
-func getDBEngine() *xorm.Engine {
+func init() {
+	var err error
 	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
 		host, port, user, password, dbName)
-	fmt.Println(psqlInfo)
-	var err error
-	engine,err=xorm.NewEngine("postgres",psqlInfo)
-	if err!=nil{
-		glog.Infof("this is a err %s",err)
-		return nil
+	engine, err = xorm.NewEngine("postgres", psqlInfo)
+	if err != nil {
+		glog.Infof("this is a err %s", err)
 	}
 
-	engine.ShowSQL()
+	////同步结构体与数据表
+	//if err=engine.Sync(new(test));err!=nil{
+	//	glog.Infof("Fail to sync database: %v\n", err)
+	//}
+}
 
-	err=engine.Ping()
-	if err!=nil {
-		glog.Infof("connect postgresql fail %s",err)
+
+//自检机制
+func getDBEngine() *xorm.Engine {
+	err := engine.Ping()
+	if err != nil {
+		glog.Infof("connect postgresql fail %s", err)
 		return nil
 	}
-
 	fmt.Println("connect postgresql success")
 	return engine
 }
 
 type test struct {
-	Id int
+	Id  int64
 	Num int
 }
 
+func dataInit() {
+	if err := engine.Sync2(new(test)); err != nil {
+		glog.Infof("this is init database is fail %s", err)
+	}
+}
+
 //查询所有条件
-func selectAll()  {
+func selectAll() {
 	var t []test
-	engine:=getDBEngine()
+	engine := getDBEngine()
 	engine.SQL("select * from test").Find(&t)
 	fmt.Println(t)
 }
 
 //条件查询
-func selectTest(id int)  {
+func selectTest(id int) {
 	var t []test
-	engine:=getDBEngine()
-	engine.Where("test.id=?",id).Find(&t)
+	engine := getDBEngine()
+	engine.Where("test.id=?", id).Find(&t)
 	fmt.Println(t)
 }
 
 //插入测试
-func Insertto(t *test) bool{
-	engine:=getDBEngine()
-	rows,err:=engine.Insert(t)
-	if err!=nil{
-		glog.Infof("err abdou insert %s",err)
+func Insertto(t *test) bool {
+	engine := getDBEngine()
+	rows, err := engine.Insert(t)
+	if err != nil {
+		glog.Infof("err abdou insert %s", err)
 		return false
 	}
 
-	if rows==0{
+	if rows == 0 {
 		return false
 	}
 	return true
 }
 
 //删除测试
-func DeleteTest(num int) bool{
-	t:=test{
-		Num:num,
+func DeleteTest(num int) bool {
+	t := test{
+		Num: num,
 	}
-	engine:=getDBEngine()
-	rows,err:=engine.Delete(&t)
-	if err!=nil{
-		glog.Infof("delete is fail %s",err)
+	engine := getDBEngine()
+	rows, err := engine.Delete(&t)
+	if err != nil {
+		glog.Infof("delete is fail %s", err)
 		return false
 	}
-	if rows==0 {
+	if rows == 0 {
 		log.Print("delect not found ")
 		return false
 	}
 	return true
 }
 
-func UpdateTest(t *test) bool{
-	engine:=getDBEngine()
-	rows,err:=engine.Update(t,test{Id:t.Id})
-	if err!=nil{
-		glog.Infof("updata is fail about %s",err)
+func UpdateTest(t *test) bool {
+	engine := getDBEngine()
+	rows, err := engine.Update(t, test{Id: t.Id})
+	if err != nil {
+		glog.Infof("updata is fail about %s", err)
 		return false
 	}
-	if rows==0{
+	if rows == 0 {
 		glog.Infof("no once is fail")
 		return false
 	}

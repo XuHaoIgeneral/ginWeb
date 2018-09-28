@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"ginWeb/models"
 	"ginWeb/router"
 	"github.com/gin-gonic/gin"
 	"github.com/spf13/pflag"
@@ -25,6 +26,8 @@ func main() {
 	if err:=config.Init(*cfg);err!=nil{
 		panic(err)
 	}
+
+	models.Init()
 
 	//set gin mode
 	gin.SetMode(viper.GetString("runmode"))
