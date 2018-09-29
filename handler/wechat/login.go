@@ -3,11 +3,12 @@ package wechat
 import (
 	"encoding/json"
 	"fmt"
+	"io/ioutil"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
 	"github.com/spf13/viper"
-	"io/ioutil"
-	"net/http"
 )
 
 func Login(c *gin.Context) {

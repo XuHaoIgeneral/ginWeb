@@ -1,11 +1,12 @@
 package config
 
 import (
+	"log"
+	"strings"
+
 	"github.com/fsnotify/fsnotify"
 	logmax "github.com/lexkong/log"
-	"log"
 	"github.com/spf13/viper"
-	"strings"
 )
 
 type Config struct {

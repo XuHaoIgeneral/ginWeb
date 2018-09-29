@@ -2,28 +2,28 @@ package main
 
 import (
 	"errors"
-	"ginWeb/models"
-	"ginWeb/router"
-	"github.com/gin-gonic/gin"
-	"github.com/spf13/pflag"
-	"github.com/spf13/viper"
+	"ginweb/models"
+	"ginweb/router"
 	"log"
 	"net/http"
 	"time"
 
-	"ginWeb/config"
+	"github.com/gin-gonic/gin"
+	"github.com/spf13/pflag"
+	"github.com/spf13/viper"
+
+	"ginweb/config"
 )
 
 var (
-	cfg=pflag.StringP("config","c","","apiserver config file path")
+	cfg = pflag.StringP("config", "c", "", "apiserver config file path")
 )
-
 
 func main() {
 
 	pflag.Parse()
 	//init config about viper
-	if err:=config.Init(*cfg);err!=nil{
+	if err := config.Init(*cfg); err != nil {
 		panic(err)
 	}
 
@@ -45,8 +45,8 @@ func main() {
 
 	//ping the server to make sure the router is working
 	go func() {
-		if err:=pingServer();err!=nil{
-			log.Fatal("The router has no response,or it might took too long to start up",err)
+		if err := pingServer(); err != nil {
+			log.Fatal("The router has no response,or it might took too long to start up", err)
 		}
 		log.Print("The router has been deployed siccessfully")
 	}()
@@ -54,7 +54,6 @@ func main() {
 	log.Printf("Start to listening the incoming requests on http address: %s", viper.GetString("addr"))
 	log.Printf(http.ListenAndServe(viper.GetString("addr"), g).Error())
 }
-
 
 func pingServer() error {
 
