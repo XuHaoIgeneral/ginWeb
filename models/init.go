@@ -5,46 +5,39 @@ import (
 	"github.com/go-xorm/xorm"
 	"github.com/golang/glog"
 	_ "github.com/lib/pq"
+	"github.com/spf13/viper"
 )
 
 var x *xorm.Engine
 
-const (
-	host     = "localhost"
-	port     = 5432
-	user     = "postgres"
-	password = "123"
-	dbName   = "pg_test"
-)
-
 func Init() {
 	// 创建 ORM 引擎与数据库
 	var err error
-	psqlInfo := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
-		host, port, user, password, dbName)
-	x, err = xorm.NewEngine("postgres", psqlInfo)
+	psqlInfo := fmt.Sprintf(
+		"host=%s port=%s user=%s password=%s dbname=%s sslmode=disable",
+		viper.GetString("pgsql.host"),
+		viper.GetString("pgsql.port"),
+		viper.GetString("pgsql.user"),
+		viper.GetString("pgsql.password"),
+		viper.GetString("pgsql.dbName"))
+	fmt.Println(psqlInfo)
+	x, err = xorm.NewEngine(viper.GetString("pgsql.name"), psqlInfo)
 	if err != nil {
 		glog.Fatalf("Fail to create engine: %v\n", err)
 	}
 
-	// 同步结构体与数据表  ****若本已经存在，会报错
+	// 同步结构体与数据表
+	var dataStruct []interface{}
 
-	/*
-		加入逻辑判断 判断下列的表是否存在
-	 */
-	if err = x.Sync2(new(Wx)); err != nil {
-		glog.Fatal("Fail to sync database wx %s", err)
+	dataStruct = append(dataStruct, new(Wx))
+	dataStruct = append(dataStruct, new(User))
+	dataStruct = append(dataStruct, new(TransactionDetail))
+	dataStruct = append(dataStruct, new(Question))
+
+	for i := range dataStruct {
+		if err = x.Sync2(dataStruct[i]); err != nil {
+			glog.Fatal("Fail to sync database wx %s", err)
+		}
 	}
 
-	if err = x.Sync2(new(User)); err != nil {
-		glog.Fatalf("Fail to sync database: %v\n", err)
-	}
-
-	if err = x.Sync2(new(TransactionDetail)); err != nil {
-		glog.Fatalf("Fail to sync database: %s", err)
-	}
-
-	if err = x.Sync2(new(Question)); err != nil {
-		glog.Fatalf("Fail to sync database %s", err)
-	}
 }

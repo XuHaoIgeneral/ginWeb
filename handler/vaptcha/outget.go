@@ -15,24 +15,16 @@ var myClient = &http.Client{Timeout: 10 * time.Second}
 
 var challenge string
 var imgid string
+
+
+
 // @Tags test
 // @Accept  json
 // @Produce  json
 // @Success 200 {string} plain "OK"
-// @Router /test/downtime [get]
+// @Router /test1/downtime [get]
 func Outage(c *gin.Context) {
 	var vaotcha Vaotcha
-
-	//vaotchaDict := make(map[string]string)
-	//vaotchaDict["action"] = c.Query("action")
-	//vaotchaDict["callback"] = c.Query("callback")
-	//vaotchaDict["v"] = c.DefaultQuery("v", "")
-	//vaotchaDict["challenge"] = c.DefaultQuery("challenge", "")
-	//
-	//if err := mapstructure.Decode(vaotchaDict, &vaotcha); err != nil {
-	//	log.Panic("this is xxxx")
-	//}
-
 	if err:=c.ShouldBindQuery(&vaotcha);err!=nil{
 		log.Print("binding is fail")
 	}

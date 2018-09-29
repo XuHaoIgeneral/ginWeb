@@ -14,6 +14,9 @@ log:
   log_backup_count: 7
 pgsql:
   name: postgres
-  psssword: 123456
+  host: localhost
   port: 5432
   defaultDB: postgres
+  dbName: pg_test
+  user: postgres
+  password: 123
