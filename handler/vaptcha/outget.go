@@ -98,7 +98,6 @@ func verifyOutage(c *gin.Context,vaotcha *Vaotcha)  {
 		return
 	}
 
-
 	log.Print("cnd")
 	url:=`http://d.vaptcha.com/`
 	validatekey:=md5str(imgid+vaotcha.V)

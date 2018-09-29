@@ -1,6 +1,7 @@
 package router
 
 import (
+	"ginWeb/handler/wechat"
 	"ginWeb/router/middleware"
 	"ginWeb/handler/vaptcha"
 	"ginweb/handler/sd"
@@ -37,6 +38,11 @@ func Load(g *gin.Engine,mv ...gin.HandlerFunc) *gin.Engine  {
 
 		vap.GET("/downtime",vaptcha.Outage)
 
+	}
+
+	wx:=g.Group("/")
+	{
+		wx.Any("/login",wechat.Login)
 	}
 
 	return g

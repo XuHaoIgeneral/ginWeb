@@ -20,3 +20,7 @@ pgsql:
   dbName: pg_test
   user: postgres
   password: 123
+wechat:
+  xcx:
+    appid: wxc1b28e67dc962984
+    secret: xxxxxxxx

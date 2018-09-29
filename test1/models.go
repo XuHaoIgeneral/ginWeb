@@ -11,7 +11,6 @@
 // WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
 // License for the specific language governing permissions and limitations
 // under the License.
-
 package main
 
 import (
@@ -62,7 +61,7 @@ func init() {
 	if err != nil {
 		glog.Fatalf("Fail to create engine: %v\n", err)
 	}
-
+	fmt.Println()
 	// 同步结构体与数据表
 	if err = x.Sync(new(Account)); err != nil {
 		glog.Fatalf("Fail to sync database: %v\n", err)

@@ -31,9 +31,9 @@ func Validate(c *gin.Context) {
 	}
 	log.Print(verify)
 	message := verify.Imgid
-	c.JSON(http.StatusOK,gin.H{
-		"state":true,
-		"test":"test",
-		"message":message,
+	c.JSON(http.StatusOK, gin.H{
+		"state":   true,
+		"test":    "test",
+		"message": message,
 	})
 }
