@@ -14,8 +14,8 @@ import (
 
 func Login(c *gin.Context) {
 
-	code := c.DefaultQuery("code", "null")
-
+	//code := c.DefaultQuery("code", "null")
+	code := c.DefaultPostForm("code", "null")
 	if code == "null" {
 		glog.Infof("接收为空 code 微信获取code失败")
 		return
@@ -26,8 +26,10 @@ func Login(c *gin.Context) {
 		"appid=%s"+
 		"&secret=%s"+
 		"&code=%s"+
-		"&grant_type=authorizatLSion_code", viper.GetString("wechat.xcx.appid"), viper.GetString("wechat.xcx.secret"), code)
+		"&grant_type=%s",
+		viper.GetString("wechat.xcx.appid"), viper.GetString("wechat.xcx.secret"), code, "authorization_code")
 
+    fmt.Println(urlToken)
 	resp, err := http.Get(urlToken)
 	if err != nil {
 		glog.Infof("请求access_token错误")

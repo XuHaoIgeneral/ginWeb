@@ -1,7 +1,7 @@
 runmode: debug
-addr: :8888
+addr: :9000
 name: apiserver
-url: http://0.0.0.0:8888
+url: http://0.0.0.0:9000
 max_ping_count: 10
 log:
   writers: file,stdout

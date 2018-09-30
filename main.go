@@ -2,7 +2,6 @@ package main
 
 import (
 	"errors"
-	"ginweb/models"
 	"ginweb/router"
 	"log"
 	"net/http"
@@ -27,7 +26,7 @@ func main() {
 		panic(err)
 	}
 
-	models.Init()
+	//models.Init()
 
 	//set gin mode
 	gin.SetMode(viper.GetString("runmode"))
