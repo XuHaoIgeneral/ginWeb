@@ -32,7 +32,6 @@ func Outage(c *gin.Context) {
 	switch vaotcha.Action {
 	case "get":
 		getOutage(c)
-
 	case "verify":
 		verifyOutage(c,&vaotcha)
 	}
@@ -116,5 +115,4 @@ func verifyOutage(c *gin.Context,vaotcha *Vaotcha)  {
 			"msg":"验证不匹配",
 		})
 	}
-
 }

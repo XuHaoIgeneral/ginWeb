@@ -70,5 +70,4 @@ func pingServer() error {
 		time.Sleep(time.Second)
 	}
 	return errors.New("Connot connet to the router")
-
 }

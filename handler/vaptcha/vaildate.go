@@ -17,6 +17,7 @@ func Validate(c *gin.Context) {
 	var err error
 	contentType := c.Request.Header.Get("Content-Type")
 	log.Print(contentType)
+
 	switch contentType {
 	case "application/json":
 		err = c.BindJSON(&verify)
@@ -25,6 +26,7 @@ func Validate(c *gin.Context) {
 	default:
 		log.Print("error!!!!")
 	}
+
 	if err != nil {
 		log.Print("error about request header application")
 		log.Print(err)

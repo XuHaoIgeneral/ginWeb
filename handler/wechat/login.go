@@ -3,6 +3,7 @@ package wechat
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/tidwall/gjson"
 	"io/ioutil"
 	"net/http"
 
@@ -12,20 +13,21 @@ import (
 )
 
 func Login(c *gin.Context) {
+
 	code := c.DefaultQuery("code", "null")
-	state := c.Query("state")
-	glog.Info(state)
+
 	if code == "null" {
 		glog.Infof("接收为空 code 微信获取code失败")
 		return
 	}
+
+	//请求access_token
 	urlToken := fmt.Sprintf("https://api.weixin.qq.com/sns/oauth2/access_token?"+
 		"appid=%s"+
 		"&secret=%s"+
 		"&code=%s"+
-		"&grant_type=authorization_code", viper.GetString("appid"), viper.GetString("secret"), code)
+		"&grant_type=authorizatLSion_code", viper.GetString("wechat.xcx.appid"), viper.GetString("wechat.xcx.secret"), code)
 
-	//请求access_token
 	resp, err := http.Get(urlToken)
 	if err != nil {
 		glog.Infof("请求access_token错误")
@@ -40,6 +42,24 @@ func Login(c *gin.Context) {
 		c.JSONP(http.StatusOK, gin.H{
 			"code": "0402",
 		})
+		return
+	}
+
+	var wxerr Err
+	//判断返回参数 获取access_token
+	probe := gjson.Get(string(body), "errcode")
+	if probe.String() != "" {
+		glog.Infof("request access fail, body is %s", body)
+		if err = json.Unmarshal(body, &wxerr); err != nil {
+			glog.Infof("bind wxerr is fail")
+			c.JSONP(http.StatusOK, gin.H{
+				"code": "0410",
+			})
+		}
+		c.JSONP(http.StatusOK, gin.H{
+			"code": "0411",
+		})
+		return
 	}
 
 	var acc AccessToken
@@ -49,12 +69,7 @@ func Login(c *gin.Context) {
 			"code": "0403",
 		})
 	}
-	if acc.Errcode == 40029 {
-		glog.Infof("error about resp body")
-		c.JSONP(http.StatusOK, gin.H{
-			"code": "0404",
-		})
-	}
+
 	c.JSONP(http.StatusOK, gin.H{
 		"code": "200",
 	})

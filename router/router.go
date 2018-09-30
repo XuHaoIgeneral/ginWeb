@@ -41,7 +41,7 @@ func Load(g *gin.Engine, mv ...gin.HandlerFunc) *gin.Engine {
 
 	}
 
-	wx := g.Group("/")
+	wx := g.Group("/wx")
 	{
 		wx.Any("/login", wechat.Login)
 	}
