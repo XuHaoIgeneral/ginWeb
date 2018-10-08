@@ -24,3 +24,6 @@ wechat:
   xcx:
     appid: wxc1b28e67dc962984
     secret: eb3e3b585b13fe57624983c0dd088bc5
+  pay:
+    mcid: 1487206792
+  WECHAT_NOTIFY_URL: https://sd.wlinno.com/wx/pay
