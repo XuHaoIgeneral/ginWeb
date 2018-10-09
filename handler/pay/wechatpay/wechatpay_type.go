@@ -16,14 +16,14 @@ type Base struct {
 //统一下单请求参数
 type UnitOrder struct {
 	Base
-	Body           string `xml:"body"`
-	NotifyUrl      string `xml:"notify_url"`       //通知地址
-	TradeType      string `xml:"trade_type"`       //交易类型
-	SpbillCreateIp string `xml:"spbill_create_ip"` //终端ip
-	TotalFee       int    `xml:"total_fee"`        //标价金额
-	OutTradeNo     string `xml:"out_trade_no"`     //订单号
-	SceneInfo      string `xml:"scene_info"`       //
-	Openid         string `xml:"openid"`           //
+	Body           string  `xml:"body"`
+	NotifyUrl      string  `xml:"notify_url"`       //通知地址
+	TradeType      string  `xml:"trade_type"`       //交易类型
+	SpbillCreateIp string  `xml:"spbill_create_ip"` //终端ip
+	TotalFee       int `xml:"total_fee"`        //标价金额
+	OutTradeNo     string  `xml:"out_trade_no"`     //订单号
+	SceneInfo      string  `xml:"scene_info"`       //
+	Openid         string  `xml:"openid"`           //
 	Referer        string
 }
 

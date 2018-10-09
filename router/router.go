@@ -45,5 +45,13 @@ func Load(g *gin.Engine, mv ...gin.HandlerFunc) *gin.Engine {
 		wx.Any("/loginwy", wechat.Login)
 	}
 
+	pay:=g.Group("/pay")
+	{
+		g.Group("/wx")
+		{
+			pay.POST("xcx")
+			pay.POST("return")
+		}
+	}
 	return g
 }
