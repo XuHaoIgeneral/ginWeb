@@ -6,7 +6,6 @@ import (
 	"ginweb/handler/wechat"
 	"ginweb/router/middleware"
 	"net/http"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -44,7 +43,6 @@ func Load(g *gin.Engine, mv ...gin.HandlerFunc) *gin.Engine {
 		wx.Any("/login", wechat.XcxLogin)
 		wx.Any("/loginwy", wechat.Login)
 	}
-
 	pay:=g.Group("/pay")
 	{
 		g.Group("/wx")

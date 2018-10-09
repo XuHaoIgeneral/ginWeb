@@ -7,15 +7,24 @@ import (
 	"net/http"
 	"strconv"
 	"time"
+	"ginweb/server/aesED"
 )
 
 var wechat_client *WechatPay
 
 func (this *WechatPay)XcxPay(c *gin.Context) {
 	//由前端传递 openid
-	openid := c.DefaultPostForm("openid", "null")
-	if openid == "null" {
+	token := c.DefaultPostForm("token", "null")
+	if token == "null" {
 		glog.Infof("获取openid失败，获取为null")
+		c.JSONP(http.StatusOK, gin.H{
+			"status": "0400",
+		})
+		return
+	}
+	openid,err:=aesED.Decrypt(token)
+	if err!=nil {
+		glog.Infof("token 解析 openid 失败")
 		c.JSONP(http.StatusOK, gin.H{
 			"status": "0400",
 		})

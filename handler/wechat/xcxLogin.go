@@ -3,6 +3,7 @@ package wechat
 import (
 	"encoding/json"
 	"fmt"
+	"ginweb/server/aesED"
 	"github.com/gin-gonic/gin"
 	"github.com/lexkong/log"
 	"github.com/spf13/viper"
@@ -20,7 +21,6 @@ type XcxSessionKey struct {
 	Session_key string `form:"session_key" json:"session_key" binding:"required"`
 	Unionid     string `form:"unionid" json:"unionid" binding:"required"`
 }
-
 
 //请求session_key openid unionid 并且绑定
 func GetSessionKey(code string) (*XcxSessionKey, error) {
@@ -43,8 +43,7 @@ func GetSessionKey(code string) (*XcxSessionKey, error) {
 	//判断返回参数是否带有unionid，获取openid session_key
 	probe := gjson.Get(string(body), "unionid")
 	if probe.String() == "" {
-		log.Infof("获取unionid 错误 返回为:%s", string(body))
-		return nil, err
+		log.Infof("获取unionid为空 返回为:%s", string(body))
 	}
 
 	if err := json.Unmarshal(body, &xcx); err != nil {
@@ -59,8 +58,8 @@ func GetSessionKey(code string) (*XcxSessionKey, error) {
 func XcxLogin(c *gin.Context) {
 
 	code := c.DefaultPostForm("code", "null")
-	_, err := GetSessionKey(code)
-
+	xcx, err := GetSessionKey(code)
+	token, err := aesED.Encrypt(xcx.Openid)
 	if err != nil {
 		c.JSONP(http.StatusOK, gin.H{
 			"code": "0",
@@ -69,49 +68,6 @@ func XcxLogin(c *gin.Context) {
 	}
 
 	c.JSONP(http.StatusOK, gin.H{
-		"code": "1",
+		"token": token,
 	})
-	////请求session_key
-	//url := fmt.Sprintf(xcxUrl, viper.GetString("wechat.xcx.appid"), viper.GetString("wechat.xcx.secret"), code, "authorization_code")
-	//
-	//resp, err := http.Get(url)
-	//
-	//defer resp.Body.Close()
-	//
-	//if err != nil {
-	//	log.Infof("请求session_key错误")
-	//	c.JSONP(http.StatusOK, gin.H{
-	//		"code": "0401",
-	//	})
-	//	return
-	//}
-	//
-	//body, err := ioutil.ReadAll(resp.Body)
-	//if err != nil {
-	//	log.Infof("请求session_key body错误")
-	//	c.JSONP(http.StatusOK, gin.H{
-	//		"code": "0402",
-	//	})
-	//	return
-	//}
-	//
-	////判断返回参数是否带有unionid，获取openid session_key
-	//probe := gjson.Get(string(body), "unionid")
-	//if probe.String() == "" {
-	//	log.Infof("获取unionid 错误 返回为:%s", string(body))
-	//	c.JSONP(http.StatusOK, gin.H{
-	//		"code": "0403",
-	//	})
-	//	return
-	//}
-	//
-	//if err := json.Unmarshal(body, &xcx); err != nil {
-	//	log.Infof("bind is fail")
-	//	c.JSONP(http.StatusOK, gin.H{
-	//		"code": "0403",
-	//	})
-	//}
-	//c.JSONP(http.StatusOK, gin.H{
-	//	"code": "200",
-	//})
 }
