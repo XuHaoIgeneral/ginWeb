@@ -12,7 +12,11 @@ import (
 
 var wechat_client *WechatPay
 
-func (this *WechatPay)XcxPay(c *gin.Context) {
+func XcxPay(c *gin.Context)  {
+	wechat_client.Xcxpay(c)
+}
+
+func (this *WechatPay) Xcxpay(c *gin.Context) {
 	//由前端传递 openid
 	token := c.DefaultPostForm("token", "null")
 	if token == "null" {
@@ -31,7 +35,7 @@ func (this *WechatPay)XcxPay(c *gin.Context) {
 		return
 	}
 	//获取类型
-	TradeType := c.DefaultPostForm("TradeType", "null")
+	TradeType := c.DefaultPostForm("TradeType", "JSAPI")
 	if TradeType != "JSAPI" {
 		glog.Infof("获取tradetype失败，获取为 null")
 		c.JSONP(http.StatusOK, gin.H{

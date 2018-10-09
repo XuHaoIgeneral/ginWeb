@@ -1,6 +1,7 @@
 package router
 
 import (
+	"ginweb/handler/pay/wechatpay"
 	"ginweb/handler/sd"
 	"ginweb/handler/vaptcha"
 	"ginweb/handler/wechat"
@@ -47,7 +48,7 @@ func Load(g *gin.Engine, mv ...gin.HandlerFunc) *gin.Engine {
 	{
 		g.Group("/wx")
 		{
-			pay.POST("xcx")
+			pay.POST("xcx",wechatpay.XcxPay)
 			pay.POST("return")
 		}
 	}
