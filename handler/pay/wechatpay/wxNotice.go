@@ -11,7 +11,10 @@ import (
 )
 
 //微信扫码回调地址(gin框架)
-func (this *WechatPay) PayNotifyUrl(c *gin.Context) {
+func PayNotifyUrl(c *gin.Context)  {
+	wechat_client.PaynotifyUrl(c)
+}
+func (this *WechatPay) PaynotifyUrl(c *gin.Context) {
 
 	body, err := ioutil.ReadAll(c.Request.Body)
 	if err != nil {

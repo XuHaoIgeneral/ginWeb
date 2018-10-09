@@ -48,8 +48,8 @@ func Load(g *gin.Engine, mv ...gin.HandlerFunc) *gin.Engine {
 	{
 		g.Group("/wx")
 		{
-			pay.POST("xcx",wechatpay.XcxPay)
-			pay.POST("return")
+			pay.POST("/xcx",wechatpay.XcxPay)
+			pay.POST("/return",wechatpay.PayNotifyUrl)
 		}
 	}
 	return g
