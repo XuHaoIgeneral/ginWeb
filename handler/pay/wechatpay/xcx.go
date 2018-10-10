@@ -13,11 +13,11 @@ import (
 
 var wechat_client *WechatPay
 
-func XcxPay(c *gin.Context) {
-	wechat_client.Xcxpay(c)
-}
+//func XcxPay(c *gin.Context) {
+//	wechat_client.Xcxpay(c)
+//}
 
-func (this *WechatPay) Xcxpay(c *gin.Context) {
+func XcxPay(c *gin.Context) {
 	//由前端传递 openid
 	token := c.DefaultPostForm("token", "null")
 	if token == "null" {
@@ -53,13 +53,13 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 		})
 		return
 	}
-
+	
 	//订单生成
-	this = CreateOrder(this)
+	wechat_client = CreateOrder(wechat_client)
 	//获取ip
 	ip := c.ClientIP()
 	payResult := new(UnifyOrderResult)
-	payResult, err = UnifiedOrder(ip, openid, "JSAPI", price, this)
+	payResult, err = UnifiedOrder(ip, openid, "JSAPI", price, wechat_client)
 	if err != nil {
 		c.JSONP(http.StatusOK, gin.H{
 			"status": "0403",
