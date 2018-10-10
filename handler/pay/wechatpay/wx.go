@@ -6,7 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
 	"github.com/spf13/viper"
-	"io/ioutil"
 	"net/http"
 	"strconv"
 	"time"
@@ -20,11 +19,7 @@ func XcxPay(c *gin.Context) {
 
 func (this *WechatPay) Xcxpay(c *gin.Context) {
 	//由前端传递 openid
-	body, err := ioutil.ReadAll(c.Request.Body)
-	glog.Infof("re %s",string(body))
-	token:=string(body[6:])
-	glog.Infof("re %s",token)
-	//token := c.DefaultPostForm("token", "null")
+	token := c.DefaultPostForm("token", "null")
 	if token == "null" {
 		glog.Infof("获取openid失败，获取为null")
 		c.JSONP(http.StatusOK, gin.H{

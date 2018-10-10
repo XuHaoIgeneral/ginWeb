@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="193055b3-70d3-4ce2-90b7-2d92945e18f7" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/conf/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/conf/config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/pay.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/pay/wechatpay/pay.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/wechatpay.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/pay/wechatpay/wechatpay.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/wx.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/pay/wechatpay/wx.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/errno/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/errno/code.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -193,8 +188,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wx.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="171" column="31" lean-forward="true" selection-start-line="171" selection-start-column="31" selection-end-line="171" selection-end-column="31" />
+            <state relative-caret-position="241">
+              <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
               <folding>
                 <element signature="e#19#193#0" expanded="true" />
               </folding>
@@ -368,11 +363,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="x" value="1920" />
-    <option name="y" value="101" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="2226" />
+    <option name="y" value="124" />
     <option name="width" value="1920" />
-    <option name="height" value="1080" />
+    <option name="height" value="1018" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -994,8 +989,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wx.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="171" column="31" lean-forward="true" selection-start-line="171" selection-start-column="31" selection-end-line="171" selection-end-column="31" />
+        <state relative-caret-position="241">
+          <caret line="26" column="10" lean-forward="true" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
           <folding>
             <element signature="e#19#193#0" expanded="true" />
           </folding>
