@@ -66,7 +66,6 @@ func XcxLogin(c *gin.Context) {
 		})
 		return
 	}
-
 	c.JSONP(http.StatusOK, gin.H{
 		"token": token,
 	})

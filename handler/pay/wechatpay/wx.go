@@ -12,13 +12,16 @@ import (
 
 var wechat_client *WechatPay
 
+
 func XcxPay(c *gin.Context)  {
+	wechat_client=new(WechatPay)
 	wechat_client.Xcxpay(c)
 }
 
 func (this *WechatPay) Xcxpay(c *gin.Context) {
 	//由前端传递 openid
 	token := c.DefaultPostForm("token", "null")
+	glog.Infof(token)
 	if token == "null" {
 		glog.Infof("获取openid失败，获取为null")
 		c.JSONP(http.StatusOK, gin.H{
@@ -27,6 +30,7 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 		return
 	}
 	openid,err:=aesED.Decrypt(token)
+	glog.Infof(openid)
 	if err!=nil {
 		glog.Infof("token 解析 openid 失败")
 		c.JSONP(http.StatusOK, gin.H{
@@ -54,12 +58,11 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 	}
 
 	//订单生成
-	CreateOrder(wechat_client)
-
+	CreateOrder(this)
 	//获取ip
 	ip := c.ClientIP()
 
-	payResult, err := UnifiedOrder(ip, openid, TradeType, price, wechat_client)
+	payResult, err := UnifiedOrder(ip, openid, TradeType, price, this)
 	if err != nil {
 		c.JSONP(http.StatusOK, gin.H{
 			"status": "0403",
@@ -115,6 +118,7 @@ func CreateOrder(wechat_client *WechatPay) {
 		wechat_cert, )
 }
 
+//统一下单
 func UnifiedOrder(ip, openid, TradeType string, price int, wechat_client *WechatPay) (*UnifyOrderResult, error) {
 	var pay_data UnitOrder
 

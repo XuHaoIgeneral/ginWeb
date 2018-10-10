@@ -14,6 +14,8 @@ import (
 func PayNotifyUrl(c *gin.Context)  {
 	wechat_client.PaynotifyUrl(c)
 }
+
+
 func (this *WechatPay) PaynotifyUrl(c *gin.Context) {
 
 	body, err := ioutil.ReadAll(c.Request.Body)
