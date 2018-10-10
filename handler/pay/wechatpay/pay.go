@@ -35,7 +35,7 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	m["out_trade_no"] = param.OutTradeNo
 
 	m["nonce_str"] = param.NonceStr
-
+	glog.Infof("paySign：%s",param.Sign)
 	if param.TradeType == "MWEB" {
 		m["scene_info"] = param.SceneInfo
 	}
@@ -69,13 +69,13 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	}
 	body, _ := ioutil.ReadAll(resp.Body)
 
+	glog.Infof("body===%s",string(body))
 	var pay_result *UnifyOrderResult
-	pay_result=new(UnifyOrderResult)
 	err = xml.Unmarshal(body, &pay_result)
 	if err != nil {
 		return nil, err
 	}
-	glog.Infof(pay_result.AppId)
+	glog.Infof("pay_Infof,addip=====%s",pay_result.AppId)
 	return pay_result, nil
 }
 
