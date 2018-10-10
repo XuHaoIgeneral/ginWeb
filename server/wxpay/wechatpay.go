@@ -1,4 +1,4 @@
-package wechatpay
+package wxpay
 
 import (
 	"crypto/md5"

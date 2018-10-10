@@ -1,4 +1,4 @@
-package wechatpay
+package wxpay
 
 const (
 	UNIT_ORDER_URL   = "https://api.mch.weixin.qq.com/pay/unifiedorder"

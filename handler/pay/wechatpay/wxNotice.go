@@ -3,6 +3,7 @@ package wechatpay
 import (
 	"encoding/xml"
 	"fmt"
+	"ginweb/server/wxpay"
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
 	"encoding/json"
@@ -21,7 +22,7 @@ func PayNotifyUrl(c *gin.Context) {
 	if err != nil {
 		glog.Error(err, "read notify body error")
 	}
-	var wx_notify_req PayNotifyResult
+	var wx_notify_req wxpay.PayNotifyResult
 	err = xml.Unmarshal(body, &wx_notify_req)
 	if err != nil {
 		glog.Error(err, "read http body xml failed! err :"+err.Error())

@@ -3,6 +3,7 @@ package wechatpay
 import (
 	"errors"
 	"ginweb/server/aesED"
+	"ginweb/server/wxpay"
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
 	"github.com/spf13/viper"
@@ -11,7 +12,7 @@ import (
 	"time"
 )
 
-var wechat_client *WechatPay
+var wechat_client *wxpay.WechatPay
 
 //func XcxPay(c *gin.Context) {
 //	wechat_client.Xcxpay(c)
@@ -53,12 +54,12 @@ func XcxPay(c *gin.Context) {
 		})
 		return
 	}
-	
+
 	//订单生成
 	wechat_client = CreateOrder(wechat_client)
 	//获取ip
 	ip := c.ClientIP()
-	payResult := new(UnifyOrderResult)
+	payResult := new(wxpay.UnifyOrderResult)
 	payResult, err = UnifiedOrder(ip, openid, "JSAPI", price, wechat_client)
 	if err != nil {
 		c.JSONP(http.StatusOK, gin.H{
@@ -89,7 +90,7 @@ func XcxPay(c *gin.Context) {
 	res["package"] = "prepay_id=" + payResult.PrepayId
 	res["signType"] = "MD5"
 	res["timeStamp"] = strconv.FormatInt(time.Now().Unix(), 10)
-	resign := GetSign(res, viper.GetString("wechat.pay.apikey"))
+	resign := wxpay.GetSign(res, viper.GetString("wechat.pay.apikey"))
 
 	c.JSONP(http.StatusOK, gin.H{
 		"appId":     payResult.AppId,
@@ -113,10 +114,10 @@ func localhostOrder() string {
 }
 
 //订单生成
-func CreateOrder(wechat_client *WechatPay) *WechatPay {
+func CreateOrder(wechat_client *wxpay.WechatPay) *wxpay.WechatPay {
 	wechat_cert := []byte("1234567890qazxswa")
 	wechat_key := []byte("1234567890wsxzaq")
-	wechat_client = New(
+	wechat_client = wxpay.New(
 		viper.GetString("wechat.xcx.appid"),
 		viper.GetString("wechat.pay.mcid"),
 		viper.GetString("wechat.pay.apikey"),
@@ -126,9 +127,9 @@ func CreateOrder(wechat_client *WechatPay) *WechatPay {
 }
 
 //统一下单
-func UnifiedOrder(ip, openid, TradeType string, price int, wechat_client *WechatPay) (*UnifyOrderResult, error) {
+func UnifiedOrder(ip, openid, TradeType string, price int, wechat_client *wxpay.WechatPay) (*wxpay.UnifyOrderResult, error) {
 
-	var pay_data UnitOrder
+	var pay_data wxpay.UnitOrder
 	pay_data.NotifyUrl = viper.GetString("wechat.WECHAT_NOTIFY_URL")
 
 	switch TradeType {
