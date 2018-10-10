@@ -86,10 +86,10 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 	res := make(map[string]interface{}, 0)
 	res["appid"] = payResult.AppId
 	res["nonceStr"] = payResult.NonceStr
-	res["prepayId"] = payResult.PrepayId
+	res["prepay_id"] = payResult.PrepayId
 	res["signType"] = "MD5"
 	res["timeStamp"] = strconv.FormatInt(time.Now().Unix(), 10)
-	resign := GetSign(res, viper.GetString("wechat.wcx.secret"))
+	resign := GetSign(res, viper.GetString("wechat.pay.apikey"))
 
 	c.JSONP(http.StatusOK, gin.H{
 		"appid":     payResult.AppId,
