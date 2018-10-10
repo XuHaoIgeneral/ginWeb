@@ -15,21 +15,20 @@ func PayNotifyUrl(c *gin.Context)  {
 	wechat_client.PaynotifyUrl(c)
 }
 
-
 func (this *WechatPay) PaynotifyUrl(c *gin.Context) {
 
 	body, err := ioutil.ReadAll(c.Request.Body)
 	if err != nil {
 		glog.Error(err, "read notify body error")
 	}
-	var wx_notify_req *PayNotifyResult
-	err = xml.Unmarshal(body, wx_notify_req)
+	var wx_notify_req PayNotifyResult
+	err = xml.Unmarshal(body, &wx_notify_req)
 	if err != nil {
 		glog.Error(err, "read http body xml failed! err :"+err.Error())
 	}
 	var reqMap map[string]interface{}
 	reqMap = make(map[string]interface{}, 0)
-
+	
 	reqMap["return_code"] = wx_notify_req.ReturnCode
 	reqMap["return_msg"] = wx_notify_req.ReturnMsg
 	reqMap["appid"] = wx_notify_req.AppId

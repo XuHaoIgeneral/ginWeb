@@ -26,6 +26,7 @@ func main() {
 		panic(err)
 	}
 
+	//初始化数据库
 	//models.Init()
 
 	//set gin mode

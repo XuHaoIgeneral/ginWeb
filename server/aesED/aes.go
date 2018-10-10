@@ -1,5 +1,7 @@
 package aesED
-
+/*
+	AES 加密和解密
+ */
 import (
 	"crypto/aes"
 	"crypto/cipher"
