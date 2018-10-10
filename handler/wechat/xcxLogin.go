@@ -56,7 +56,7 @@ func GetSessionKey(code string) (*XcxSessionKey, error) {
 
 //接收小程序登陆请求并返回
 func XcxLogin(c *gin.Context) {
-
+	
 	code := c.DefaultPostForm("code", "null")
 	xcx, err := GetSessionKey(code)
 	token, err := aesED.Encrypt(xcx.Openid)

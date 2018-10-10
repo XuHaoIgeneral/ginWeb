@@ -69,7 +69,7 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 		})
 		return
 	}
-	if err == nil {
+	if err != nil {
 		glog.Infof("%T==/n==%P==/n==%s", payResult, payResult, payResult)
 		c.JSONP(http.StatusOK, gin.H{
 			"status": "test",
@@ -97,7 +97,7 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 	c.JSONP(http.StatusOK, gin.H{
 		"appid":     payResult.AppId,
 		"nonceStr":  payResult.NonceStr,
-		"prepayId":  payResult.PrepayId,
+		"package":   "prepay_id=" + payResult.PrepayId,
 		"signType":  "MD5",
 		"timeStamp": res["timeStamp"],
 		"sign":      resign,
@@ -107,11 +107,11 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 //本地订单号生成，依赖时间关系
 func localhostOrder() string {
 	time := time.Now().UnixNano()
-	timeUnixNano:=strconv.FormatInt(time,10)
+	timeUnixNano := strconv.FormatInt(time, 10)
 	/*
 			业务处理
 	*/
-	glog.Infof("本地订单号：%s",timeUnixNano)
+	glog.Infof("本地订单号：%s", timeUnixNano)
 	return string(timeUnixNano)
 }
 
@@ -125,7 +125,7 @@ func CreateOrder(wechat_client *WechatPay) *WechatPay {
 		viper.GetString("wechat.pay.apikey"),
 		wechat_key,
 		wechat_cert, )
-	glog.Infof("%s",wechat_client)
+	glog.Infof("%s", wechat_client)
 	return wechat_client
 }
 
@@ -140,12 +140,12 @@ func UnifiedOrder(ip, openid, TradeType string, price int, wechat_client *Wechat
 		pay_data.TradeType = "NATIVE"
 	case "JSAPI":
 		pay_data.TradeType = "JSAPI"
-		glog.Infof("openid 为：%s",openid)
+		glog.Infof("openid 为：%s", openid)
 		pay_data.Openid = openid
 	case "MWEB":
 		pay_data.TradeType = "MWEB"
 	}
-	localhostOrder:=localhostOrder()
+	localhostOrder := localhostOrder()
 	glog.Infof(localhostOrder)
 	pay_data.Body = "测试-支付"
 	pay_data.SpbillCreateIp = ip
