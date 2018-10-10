@@ -76,13 +76,13 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 		return
 	}
 
-	//if payResult.AppId != viper.GetString("wechat.xcx.appid") && payResult.MchId != viper.GetString("wechat.pay.mcid") {
-	//	glog.Error("订单被篡改！")
-	//	c.JSONP(http.StatusOK, gin.H{
-	//		"status": "0404",
-	//	})
-	//	return
-	//}
+	if payResult.AppId != viper.GetString("wechat.xcx.appid") && payResult.MchId != viper.GetString("wechat.pay.mcid") {
+		glog.Error("订单被篡改！")
+		c.JSONP(http.StatusOK, gin.H{
+			"status": "0404",
+		})
+		return
+	}
 
 	//下单回调处理
 	res := make(map[string]interface{}, 0)
