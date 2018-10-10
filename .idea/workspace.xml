@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="193055b3-70d3-4ce2-90b7-2d92945e18f7" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/wx.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/pay/wechatpay/wx.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/word.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/word.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -192,8 +191,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wx.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="91" column="64" lean-forward="true" selection-start-line="91" selection-start-column="64" selection-end-line="91" selection-end-column="64" />
+            <state relative-caret-position="335">
+              <caret line="98" column="38" lean-forward="true" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
               <folding>
                 <element signature="e#19#193#0" expanded="true" />
               </folding>
@@ -1015,8 +1014,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wx.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="91" column="64" lean-forward="true" selection-start-line="91" selection-start-column="64" selection-end-line="91" selection-end-column="64" />
+        <state relative-caret-position="335">
+          <caret line="98" column="38" lean-forward="true" selection-start-line="98" selection-start-column="38" selection-end-line="98" selection-end-column="38" />
           <folding>
             <element signature="e#19#193#0" expanded="true" />
           </folding>
