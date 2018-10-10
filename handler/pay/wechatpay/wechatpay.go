@@ -47,6 +47,7 @@ func GetSign(mReq map[string]interface{}, key string) (sign string) {
 			signStrings = signStrings + k + "=" + value + "&"
 		}
 	}
+	log.Infof(signStrings)
 	if key != "" {
 		signStrings = signStrings + "key=" + key
 	}

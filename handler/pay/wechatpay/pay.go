@@ -19,13 +19,13 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	var m map[string]interface{}
 	m = make(map[string]interface{}, 0)
 	m["appid"] = param.AppId
-	glog.Infof("payappid：%s",param.AppId)
+
 	m["body"] = param.Body
-	glog.Infof("param.Body：%s",param.Body)
+
 	m["mch_id"] = param.MchId
-	glog.Infof("param.MchId：%s",param.MchId)
+
 	m["notify_url"] = param.NotifyUrl
-	glog.Infof("notify_url：%s",param.NotifyUrl)
+
 	m["trade_type"] = param.TradeType
 
 	m["spbill_create_ip"] = param.SpbillCreateIp
@@ -33,15 +33,16 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	m["total_fee"] = param.TotalFee
 
 	m["out_trade_no"] = param.OutTradeNo
-
+	glog.Infof("ORERT======:%s",param.OutTradeNo)
 	m["nonce_str"] = param.NonceStr
-	glog.Infof("paySign：%s",param.Sign)
 	if param.TradeType == "MWEB" {
 		m["scene_info"] = param.SceneInfo
 	}
 	if param.TradeType == "JSAPI" {
 		m["openid"] = param.Openid
 	}
+	glog.Infof("param.Openid：%s",param.Openid)
+	glog.Infof("ApiKey：%s",this.ApiKey)
 	param.Sign = GetSign(m, this.ApiKey)
 
 	glog.Infof("paySign：%s",param.Sign)
@@ -75,7 +76,7 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	if err != nil {
 		return nil, err
 	}
-	glog.Infof("pay_Infof,addip=====%s",pay_result.AppId)
+	glog.Infof("pay_Infof,addip=====%s",pay_result)
 	return pay_result, nil
 }
 

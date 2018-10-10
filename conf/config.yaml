@@ -26,5 +26,6 @@ wechat:
     secret: eb3e3b585b13fe57624983c0dd088bc5
   pay:
     mcid: 1487206792
+    apikey: 363f301726964df09f47b91e6e258bfc
   WECHAT_NOTIFY_URL: https://sd.wlinno.com/pay/wx/return
 ase: astaxie12798akljzmknm.ahkjkljl;l
