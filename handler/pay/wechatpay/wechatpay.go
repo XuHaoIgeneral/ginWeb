@@ -47,10 +47,10 @@ func GetSign(mReq map[string]interface{}, key string) (sign string) {
 			signStrings = signStrings + k + "=" + value + "&"
 		}
 	}
-	log.Infof("被签名字符串%s",signStrings)
 	if key != "" {
 		signStrings = signStrings + "key=" + key
 	}
+	log.Infof("被签名字符串%s",signStrings)
 	md5Ctx := md5.New()
 	md5Ctx.Write([]byte(signStrings))
 	cipherStr := md5Ctx.Sum(nil)
