@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="193055b3-70d3-4ce2-90b7-2d92945e18f7" name="默认更改列表" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/wx.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/pay/wechatpay/wx.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -161,14 +162,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="4312" />
+          <entry key="go" value="4381" />
           <entry key="toml" value="3" />
           <entry key="yaml" value="114" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="4312" />
+          <entry key="Go" value="4381" />
           <entry key="TOML file" value="3" />
           <entry key="YAML" value="114" />
         </counts>
@@ -185,11 +186,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wx.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
+            <state relative-caret-position="409">
+              <caret line="82" column="14" lean-forward="true" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
               <folding>
                 <element signature="e#19#193#0" expanded="true" />
               </folding>
@@ -257,11 +258,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/pay.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="63" column="19" lean-forward="true" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+            <state relative-caret-position="349">
+              <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -352,8 +353,8 @@
         <option value="$PROJECT_DIR$/router/router.go" />
         <option value="$PROJECT_DIR$/handler/wechat/xcxLogin.go" />
         <option value="$PROJECT_DIR$/handler/pay/wechatpay/wxNotice.go" />
-        <option value="$PROJECT_DIR$/handler/pay/wechatpay/wx.go" />
         <option value="$PROJECT_DIR$/handler/pay/wechatpay/pay.go" />
+        <option value="$PROJECT_DIR$/handler/pay/wechatpay/wx.go" />
       </list>
     </option>
   </component>
@@ -961,20 +962,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wx.go">
+    <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/pay.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="76" column="5" lean-forward="true" selection-start-line="76" selection-start-column="5" selection-end-line="76" selection-end-column="5" />
-          <folding>
-            <element signature="e#19#193#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="349">
+          <caret line="64" column="23" lean-forward="true" selection-start-line="64" selection-start-column="23" selection-end-line="64" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/pay.go">
+    <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wx.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="63" column="19" lean-forward="true" selection-start-line="63" selection-start-column="19" selection-end-line="63" selection-end-column="19" />
+        <state relative-caret-position="409">
+          <caret line="82" column="14" lean-forward="true" selection-start-line="82" selection-start-column="14" selection-end-line="82" selection-end-column="14" />
+          <folding>
+            <element signature="e#19#193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
