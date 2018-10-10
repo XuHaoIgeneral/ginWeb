@@ -91,7 +91,7 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 	res["nonceStr"] = payResult.NonceStr
 	res["prepayId"] = payResult.PrepayId
 	res["signType"] = "MD5"
-	res["timeStamp"] = time.Now().Unix()
+	res["timeStamp"] = strconv.FormatInt(time.Now().Unix(), 10)
 	resign := GetSign(res, viper.GetString("wechat.wcx.secret"))
 
 	c.JSONP(http.StatusOK, gin.H{
