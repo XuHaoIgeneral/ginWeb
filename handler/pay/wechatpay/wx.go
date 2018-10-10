@@ -28,7 +28,6 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 		return
 	}
 	openid, err := aesED.Decrypt(token)
-	glog.Infof(openid)
 	if err != nil {
 		glog.Infof("token 解析 openid 失败")
 		c.JSONP(http.StatusOK, gin.H{
@@ -60,8 +59,6 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 	//获取ip
 	ip := c.ClientIP()
 	payResult := new(UnifyOrderResult)
-	glog.Infof("this===%s", this.AppId)
-	glog.Infof("openid===%s", openid)
 	payResult, err = UnifiedOrder(ip, openid, "JSAPI", price, this)
 	if err != nil {
 		c.JSONP(http.StatusOK, gin.H{
@@ -125,7 +122,6 @@ func CreateOrder(wechat_client *WechatPay) *WechatPay {
 		viper.GetString("wechat.pay.apikey"),
 		wechat_key,
 		wechat_cert, )
-	glog.Infof("%s", wechat_client)
 	return wechat_client
 }
 
@@ -146,7 +142,6 @@ func UnifiedOrder(ip, openid, TradeType string, price int, wechat_client *Wechat
 		pay_data.TradeType = "MWEB"
 	}
 	localhostOrder := localhostOrder()
-	glog.Infof(localhostOrder)
 	pay_data.Body = "测试-支付"
 	pay_data.SpbillCreateIp = ip
 	pay_data.TotalFee = price
@@ -172,6 +167,5 @@ func UnifiedOrder(ip, openid, TradeType string, price int, wechat_client *Wechat
 		glog.Infof("业务结果失败")
 		return nil, errors.New("wechat pay order active fail")
 	}
-	glog.Infof("result type: %T,%P", result, result)
 	return result, nil
 }

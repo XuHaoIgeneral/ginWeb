@@ -3,7 +3,6 @@ package wechatpay
 import (
 	"bytes"
 	"encoding/xml"
-	"github.com/golang/glog"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -19,21 +18,13 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	var m map[string]interface{}
 	m = make(map[string]interface{}, 0)
 	m["appid"] = param.AppId
-
 	m["body"] = param.Body
-
 	m["mch_id"] = param.MchId
-
 	m["notify_url"] = param.NotifyUrl
-
 	m["trade_type"] = param.TradeType
-
 	m["spbill_create_ip"] = param.SpbillCreateIp
-
 	m["total_fee"] = param.TotalFee
-
 	m["out_trade_no"] = param.OutTradeNo
-	glog.Infof("ORERT======:%s",param.OutTradeNo)
 	m["nonce_str"] = param.NonceStr
 	if param.TradeType == "MWEB" {
 		m["scene_info"] = param.SceneInfo
@@ -41,12 +32,7 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	if param.TradeType == "JSAPI" {
 		m["openid"] = param.Openid
 	}
-	glog.Infof("param.Openid：%s",param.Openid)
-	glog.Infof("ApiKey：%s",this.ApiKey)
 	param.Sign = GetSign(m, this.ApiKey)
-
-	glog.Infof("paySign：%s",param.Sign)
-
 	bytes_req, err := xml.Marshal(param)
 	if err != nil {
 		return nil, err
@@ -62,21 +48,17 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	if param.TradeType == "MWEB" {
 		req.Header.Set("Referer", param.Referer)
 	}
-
 	w_req := http.Client{}
 	resp, err := w_req.Do(req)
 	if err != nil {
 		return nil, err
 	}
 	body, _ := ioutil.ReadAll(resp.Body)
-
-	glog.Infof("body===%s",string(body))
 	var pay_result *UnifyOrderResult
 	err = xml.Unmarshal(body, &pay_result)
 	if err != nil {
 		return nil, err
 	}
-	glog.Infof("pay_Infof,addip=====%s",pay_result)
 	return pay_result, nil
 }
 

@@ -1,0 +1,15 @@
+<xml>
+
+<appid>wxd930ea5d5a258f4f</appid>
+
+<mch_id>10000100</mch_id>
+
+<device_info>1000<device_info>
+
+<body>test</body>
+
+<nonce_str>ibuaiVcKdpRxkhJA</nonce_str>
+
+<sign>9A0A8659F005D6984697E2CA0A9CF3B7</sign>
+
+<xml>
