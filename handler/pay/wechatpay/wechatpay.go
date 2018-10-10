@@ -4,6 +4,7 @@ import (
 	"crypto/md5"
 	"encoding/hex"
 	"fmt"
+	"github.com/spf13/viper"
 
 	"crypto/tls"
 	log "github.com/golang/glog"
@@ -61,7 +62,7 @@ func GetSign(mReq map[string]interface{}, key string) (sign string) {
 //微信支付签名验证函数
 func (this *WechatPay) VerifySign(needVerifyM map[string]interface{}, sign string) bool {
 	delete(needVerifyM, "sign")
-	signCalc := GetSign(needVerifyM, this.ApiKey)
+	signCalc := GetSign(needVerifyM, viper.GetString("wechat.pay.apikey"))
 	if sign == signCalc {
 		log.Info("wechat verify success!")
 		return true
