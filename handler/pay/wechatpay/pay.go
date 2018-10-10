@@ -19,14 +19,23 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	var m map[string]interface{}
 	m = make(map[string]interface{}, 0)
 	m["appid"] = param.AppId
+	glog.Infof("payappid：%s",param.AppId)
 	m["body"] = param.Body
+	glog.Infof("param.Body：%s",param.Body)
 	m["mch_id"] = param.MchId
+	glog.Infof("param.MchId：%s",param.MchId)
 	m["notify_url"] = param.NotifyUrl
+	glog.Infof("notify_url：%s",param.NotifyUrl)
 	m["trade_type"] = param.TradeType
+
 	m["spbill_create_ip"] = param.SpbillCreateIp
+
 	m["total_fee"] = param.TotalFee
+
 	m["out_trade_no"] = param.OutTradeNo
+
 	m["nonce_str"] = param.NonceStr
+
 	if param.TradeType == "MWEB" {
 		m["scene_info"] = param.SceneInfo
 	}
@@ -34,6 +43,8 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 		m["openid"] = param.Openid
 	}
 	param.Sign = GetSign(m, this.ApiKey)
+
+	glog.Infof("paySign：%s",param.Sign)
 
 	bytes_req, err := xml.Marshal(param)
 	if err != nil {

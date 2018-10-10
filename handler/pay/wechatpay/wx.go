@@ -67,21 +67,23 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 	CreateOrder(this)
 	//获取ip
 	ip := c.ClientIP()
-
-	payResult, err := UnifiedOrder(ip, openid, TradeType, price, this)
+	payResult:=new(UnifyOrderResult)
+	payResult, err = UnifiedOrder(ip, openid, TradeType, price, this)
 	if err != nil {
 		c.JSONP(http.StatusOK, gin.H{
 			"status": "0403",
 		})
 		return
 	}
-	if err==nil{
+	if err==nil {
 		glog.Infof("%T==/n==%P==/n==%s",payResult,payResult,payResult)
 		c.JSONP(http.StatusOK, gin.H{
 			"status": "test",
 		})
 		return
 	}
+
+
 	if payResult.AppId != viper.GetString("wechat.xcx.appid") && payResult.MchId != viper.GetString("wechat.pay.mcid") {
 		glog.Error("订单被篡改！")
 		c.JSONP(http.StatusOK, gin.H{
@@ -160,10 +162,9 @@ func UnifiedOrder(ip, openid, TradeType string, price int, wechat_client *Wechat
 	}
 
 	if result.ReturnCode == "FAIL" {
-		glog.Infof("微信订单服务失败")
+		glog.Infof("微信订单服务失败 %s",result.ReturnCode)
 		return nil, err
 	}
-
 	if result.ReturnMsg != "" {
 		glog.Infof("签名失败 ，错误原因为 %s", result.ReturnMsg)
 		return nil, err
@@ -172,5 +173,6 @@ func UnifiedOrder(ip, openid, TradeType string, price int, wechat_client *Wechat
 		glog.Infof("业务结果失败")
 		return nil, err
 	}
+	glog.Infof("result type: %T,%P",result,result)
 	return result, nil
 }
