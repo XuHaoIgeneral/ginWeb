@@ -1,9 +1,11 @@
 package wechatpay
 
 import (
+	"encoding/json"
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
 	"github.com/spf13/viper"
+	"io/ioutil"
 	"net/http"
 	"strconv"
 	"time"
@@ -12,7 +14,6 @@ import (
 
 var wechat_client *WechatPay
 
-
 func XcxPay(c *gin.Context)  {
 	wechat_client=new(WechatPay)
 	wechat_client.Xcxpay(c)
@@ -20,8 +21,13 @@ func XcxPay(c *gin.Context)  {
 
 func (this *WechatPay) Xcxpay(c *gin.Context) {
 	//由前端传递 openid
-	token := c.DefaultPostForm("token", "null")
-	glog.Infof(token)
+	body,err:=ioutil.ReadAll(c.Request.Body)
+	var dict map[string]string
+	if err:=json.Unmarshal(body,&dict);err!=nil{
+		glog.Infof("aaa")
+	}
+	token:=dict["token"]
+	//token := c.DefaultPostForm("token", "null")
 	if token == "null" {
 		glog.Infof("获取openid失败，获取为null")
 		c.JSONP(http.StatusOK, gin.H{
@@ -70,13 +76,13 @@ func (this *WechatPay) Xcxpay(c *gin.Context) {
 		return
 	}
 
-	if payResult.AppId != viper.GetString("wechat.xcx.appid") && payResult.MchId != viper.GetString("wechat.pay.mcid") {
-		glog.Error("订单被篡改！")
-		c.JSONP(http.StatusOK, gin.H{
-			"status": "0404",
-		})
-		return
-	}
+	//if payResult.AppId != viper.GetString("wechat.xcx.appid") && payResult.MchId != viper.GetString("wechat.pay.mcid") {
+	//	glog.Error("订单被篡改！")
+	//	c.JSONP(http.StatusOK, gin.H{
+	//		"status": "0404",
+	//	})
+	//	return
+	//}
 
 	//下单回调处理
 	res := make(map[string]interface{}, 0)

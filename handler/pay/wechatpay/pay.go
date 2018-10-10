@@ -3,6 +3,7 @@ package wechatpay
 import (
 	"bytes"
 	"encoding/xml"
+	"github.com/golang/glog"
 	"io/ioutil"
 	"net/http"
 	"strings"
@@ -57,11 +58,13 @@ func (this *WechatPay) Pay(param UnitOrder) (*UnifyOrderResult, error) {
 	}
 	body, _ := ioutil.ReadAll(resp.Body)
 
-	var pay_result UnifyOrderResult
+	var pay_result *UnifyOrderResult
+	pay_result=new(UnifyOrderResult)
 	err = xml.Unmarshal(body, &pay_result)
 	if err != nil {
 		return nil, err
 	}
-	return &pay_result, nil
+	glog.Infof(pay_result.AppId)
+	return pay_result, nil
 }
 
