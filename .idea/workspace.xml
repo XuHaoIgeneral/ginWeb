@@ -2,12 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="193055b3-70d3-4ce2-90b7-2d92945e18f7" name="默认更改列表" comment="">
-      <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/pay.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/wxpay/pay.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/refund.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/wxpay/refund.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/wechatpay.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/wxpay/wechatpay.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/wechatpay_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/server/wxpay/wechatpay_type.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/LoginS/wxLoginS/xcxS.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/orderS/localOrder.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/payS/wxpayS/ubifiedOrder.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/debug" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/wxNotice.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/pay/wechatpay/wxNotice.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handler/pay/wechatpay/xcx.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/pay/wechatpay/xcx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/wechat/login.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/wechatLogin/login.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handler/wechat/xcxLogin.go" beforeDir="false" afterPath="$PROJECT_DIR$/handler/wechatLogin/xcxLogin.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/errno/code.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/errno/code.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/errno/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/errno/error.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/router/router.go" beforeDir="false" afterPath="$PROJECT_DIR$/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/aesED/aes.go" beforeDir="false" afterPath="$PROJECT_DIR$/util/aesED/aes.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/wxpay/pay.go" beforeDir="false" afterPath="$PROJECT_DIR$/componet/pay/wxpayC/pay.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/wxpay/refund.go" beforeDir="false" afterPath="$PROJECT_DIR$/componet/pay/wxpayC/refund.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/wxpay/wechatpay.go" beforeDir="false" afterPath="$PROJECT_DIR$/componet/pay/wxpayC/wechatpay.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/wxpay/wechatpay_type.go" beforeDir="false" afterPath="$PROJECT_DIR$/componet/pay/wxpayC/wechatpay_type.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test1/models.go" beforeDir="false" afterPath="$PROJECT_DIR$/test/models.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -138,36 +151,38 @@
     <session id="93131220">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="4" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="go" value="125" />
+          <entry key="go" value="154" />
           <entry key="lock" value="2" />
           <entry key="md" value="4" />
           <entry key="s" value="1" />
           <entry key="toml" value="1" />
           <entry key="txt" value="2" />
-          <entry key="yaml" value="9" />
+          <entry key="yaml" value="11" />
           <entry key="yml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="125" />
+          <entry key="Go" value="154" />
           <entry key="PLAIN_TEXT" value="8" />
           <entry key="TOML file" value="1" />
-          <entry key="YAML" value="10" />
+          <entry key="YAML" value="12" />
           <entry key="x86 Plan9 Assembly" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="go" value="5189" />
+          <entry key="go" value="5373" />
           <entry key="toml" value="3" />
           <entry key="txt" value="10" />
           <entry key="yaml" value="132" />
@@ -175,7 +190,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="5189" />
+          <entry key="Go" value="5373" />
           <entry key="PLAIN_TEXT" value="10" />
           <entry key="TOML file" value="3" />
           <entry key="YAML" value="132" />
@@ -192,89 +207,58 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/xcx.go">
+        <entry file="file://$PROJECT_DIR$/conf/config.yaml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2083">
-              <caret line="129" column="36" lean-forward="true" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
-              <folding>
-                <element signature="e#19#173#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="486">
+              <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wxNotice.go">
+        <entry file="file://$PROJECT_DIR$/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="359">
-              <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
+            <state relative-caret-position="220">
+              <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
               <folding>
-                <element signature="e#19#150#0" expanded="true" />
+                <element signature="e#14#177#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/wxpay/wechatpay.go">
+        <entry file="file://$PROJECT_DIR$/models/init.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
-              <folding>
-                <element signature="e#19#189#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/models.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="495">
+              <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/wxpay/wechatpay_type.go">
+        <entry file="file://$PROJECT_DIR$/vendor/github.com/gin-gonic/gin/gin.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+            <state relative-caret-position="525">
+              <caret line="115" column="12" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/wxpay/refund.go">
+        <entry file="file://$PROJECT_DIR$/vendor/github.com/spf13/pflag/flag.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="77" column="39" lean-forward="true" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/wxpay/pay.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/ginweb.log">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pkg/errno/code.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pkg/errno/error.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="512">
-              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+            <state relative-caret-position="189">
+              <caret line="1172" column="8" lean-forward="true" selection-start-line="1172" selection-start-column="8" selection-end-line="1172" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -320,7 +304,6 @@
       <list>
         <option value="$PROJECT_DIR$/vendor/github.com/gin-gonic/gin/render/yaml.go" />
         <option value="$PROJECT_DIR$/config/config.go" />
-        <option value="$PROJECT_DIR$/models/models.go" />
         <option value="$PROJECT_DIR$/pkg/wechat/entity.go" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/vendor/vendor.json" />
@@ -332,7 +315,6 @@
         <option value="$PROJECT_DIR$/handler/wechat/weChatStruct.go" />
         <option value="$PROJECT_DIR$/Gopkg.toml" />
         <option value="$PROJECT_DIR$/handler/pay/wxQrPay.go" />
-        <option value="$PROJECT_DIR$/handler/wechat/login.go" />
         <option value="$PROJECT_DIR$/handler/pay/wechatPay/wxQrPay.go" />
         <option value="$PROJECT_DIR$/handler/pay/wechatPay/refund.go" />
         <option value="$PROJECT_DIR$/handler/pay/wechatPay/wechatpay.go" />
@@ -348,16 +330,26 @@
         <option value="$PROJECT_DIR$/server/aes/aes.go" />
         <option value="$PROJECT_DIR$/router/router.go" />
         <option value="$PROJECT_DIR$/pkg/errno/code.go" />
-        <option value="$PROJECT_DIR$/handler/wechat/xcxLogin.go" />
         <option value="$PROJECT_DIR$/handler/pay/wechatpay/pay.go" />
-        <option value="$PROJECT_DIR$/conf/config.yaml" />
         <option value="$PROJECT_DIR$/test/word.txt" />
         <option value="$PROJECT_DIR$/handler/pay/wechatpay/wx.go" />
         <option value="$PROJECT_DIR$/handler/pay/wechatpay/wechatpay.go" />
-        <option value="$PROJECT_DIR$/main.go" />
         <option value="$PROJECT_DIR$/server/aesED/aes.go" />
+        <option value="$PROJECT_DIR$/router/middleware/header.go" />
+        <option value="$PROJECT_DIR$/handler/wechat/xcxLogin.go" />
+        <option value="$PROJECT_DIR$/handler/wechat/login.go" />
+        <option value="$PROJECT_DIR$/server/pay/wechatpay/ubifiedOrder.go" />
+        <option value="$PROJECT_DIR$/server/order/localOrder.go" />
+        <option value="$PROJECT_DIR$/server/pay/wxpay/ubifiedOrder.go" />
         <option value="$PROJECT_DIR$/handler/pay/wechatpay/xcx.go" />
+        <option value="$PROJECT_DIR$/server/pay/wxpayS/ubifiedOrder.go" />
         <option value="$PROJECT_DIR$/handler/pay/wechatpay/wxNotice.go" />
+        <option value="$PROJECT_DIR$/handler/wechatLogin/login.go" />
+        <option value="$PROJECT_DIR$/server/LoginS/wxLoginS/xcxS.go" />
+        <option value="$PROJECT_DIR$/handler/wechatLogin/xcxLogin.go" />
+        <option value="$PROJECT_DIR$/conf/config.yaml" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/models/models.go" />
       </list>
     </option>
   </component>
@@ -368,8 +360,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1937" />
-    <option name="y" value="127" />
+    <option name="x" value="1984" />
+    <option name="y" value="163" />
     <option name="width" value="1920" />
     <option name="height" value="1018" />
   </component>
@@ -422,35 +414,19 @@
               <item name="ginweb" type="b2602c69:ProjectViewProjectNode" />
               <item name="ginWeb" type="47feb1d3:ProjectViewModuleNode" />
               <item name="ginweb" type="462c0819:PsiDirectoryNode" />
-              <item name="handler" type="462c0819:PsiDirectoryNode" />
+              <item name="conf" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ginweb" type="b2602c69:ProjectViewProjectNode" />
               <item name="ginWeb" type="47feb1d3:ProjectViewModuleNode" />
               <item name="ginweb" type="462c0819:PsiDirectoryNode" />
-              <item name="handler" type="462c0819:PsiDirectoryNode" />
-              <item name="pay" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="ginweb" type="b2602c69:ProjectViewProjectNode" />
               <item name="ginWeb" type="47feb1d3:ProjectViewModuleNode" />
               <item name="ginweb" type="462c0819:PsiDirectoryNode" />
-              <item name="handler" type="462c0819:PsiDirectoryNode" />
-              <item name="pay" type="462c0819:PsiDirectoryNode" />
-              <item name="wechatpay" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ginweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ginWeb" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ginweb" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ginweb" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ginWeb" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="ginweb" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="wxpay" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -480,11 +456,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/util" />
+      <recent name="$PROJECT_DIR$/componet" />
+      <recent name="$PROJECT_DIR$/test" />
+      <recent name="$PROJECT_DIR$/server/pay" />
       <recent name="$PROJECT_DIR$/server/wxpay" />
-      <recent name="$PROJECT_DIR$/handler/pay/wechatpay" />
-      <recent name="$PROJECT_DIR$/handler/pay" />
-      <recent name="$PROJECT_DIR$/pkg" />
-      <recent name="$PROJECT_DIR$/handler/pay/wechatPay" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -579,16 +555,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1937" y="127" width="1920" height="1018" extended-state="0" />
+    <frame x="1984" y="163" width="1920" height="1018" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.15899357" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1895075" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="REST Client" weight="0.39581037" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.31753033" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.732334" visible="true" weight="0.3109151" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.34619626" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.732334" visible="true" weight="0.2734289" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -598,6 +573,7 @@
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.26766595" side_tool="true" weight="0.3964059" />
       <window_info anchor="bottom" id="调试" order="10" weight="0.4480323" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.48732084" />
+      <window_info anchor="bottom" id="REST Client" order="12" weight="0.39581037" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -611,30 +587,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/gin-gonic/gin/render/html.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="74" column="5" lean-forward="true" selection-start-line="74" selection-start-column="5" selection-end-line="74" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Gopkg.toml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="64" lean-forward="true" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pkg/wechatpay/README.md" />
-    <entry file="file://$PROJECT_DIR$/pkg/wechatpay/wxQrPay.go" />
-    <entry file="file:///usr/local/Cellar/go/1.11/libexec/src/net/http/request.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="791" column="5" selection-start-line="791" selection-start-column="5" selection-end-line="791" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/refund_test.go" />
     <entry file="file://$PROJECT_DIR$/vendor/github.com/tidwall/gjson/.travis.yml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -642,13 +594,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -681,13 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/github.com/gin-gonic/gin/gin.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="360" selection-start-line="360" selection-end-line="360" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vendor/github.com/gin-gonic/gin/recovery.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -716,13 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/router/middleware/header.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/local/Cellar/go/1.11/libexec/src/strings/strings.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="446">
@@ -741,13 +672,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
           <caret line="1073" selection-start-line="1073" selection-end-line="1073" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handler/wechat/login.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>
@@ -790,9 +714,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="24" lean-forward="true" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#14#68#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -803,17 +724,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handler/wechat/xcxLogin.go">
+    <entry file="file://$PROJECT_DIR$/test/models.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/word.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="34" column="23" lean-forward="true" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+        <state relative-caret-position="414">
+          <caret line="23" column="75" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="75" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/handler/vaptcha/vaptchaStruct.go">
+    <entry file="file://$PROJECT_DIR$/util/aesED/aes.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="162">
+          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/ginweb.log">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/errno/code.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/errno/error.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="508">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
         </state>
       </provider>
     </entry>
@@ -824,9 +765,77 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/handler/vaptcha/vaptchaStruct.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/componet/pay/wxpayC/refund.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/componet/pay/wxpayC/wechatpay.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="882">
+          <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/componet/pay/wxpayC/wechatpay_type.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="906">
+          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router/middleware/header.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/sd/check.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/orderS/localOrder.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
+          <folding>
+            <element signature="e#15#70#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/xcx.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="816">
+          <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
+          <folding>
+            <element signature="e#19#200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wxNotice.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-228">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="e#19#175#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/handler/vaptcha/outget.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
+        <state relative-caret-position="558">
           <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding>
             <element signature="e#17#142#0" expanded="true" />
@@ -834,114 +843,109 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.go">
+    <entry file="file://$PROJECT_DIR$/config/config.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="23" column="29" lean-forward="true" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test1/models.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/word.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="75" selection-start-line="23" selection-start-column="64" selection-end-line="23" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/aesED/aes.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="450">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
-            <element signature="e#23#80#0" expanded="true" />
+            <element signature="e#16#136#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/router/router.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
+        <state relative-caret-position="408">
           <caret line="31" column="17" lean-forward="true" selection-start-line="31" selection-start-column="17" selection-end-line="31" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pkg/errno/code.go">
+    <entry file="file://$PROJECT_DIR$/server/payS/wxpayS/ubifiedOrder.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="270">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+          <folding>
+            <element signature="e#15#116#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pkg/errno/error.go">
+    <entry file="file://$PROJECT_DIR$/componet/pay/wxpayC/pay.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+        <state relative-caret-position="90">
+          <caret line="11" column="24" selection-start-line="11" selection-start-column="24" selection-end-line="11" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/wechatLogin/login.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="e#16#184#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/handler/wechatLogin/xcxLogin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="45" lean-forward="true" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+          <folding>
+            <element signature="e#16#206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/LoginS/wxLoginS/xcxS.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="20" column="1" lean-forward="true" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding>
+            <element signature="e#18#157#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/conf/config.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="27" column="20" lean-forward="true" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/spf13/pflag/flag.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="1172" column="8" lean-forward="true" selection-start-line="1172" selection-start-column="8" selection-end-line="1172" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/github.com/gin-gonic/gin/gin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="115" column="12" selection-start-line="115" selection-start-column="12" selection-end-line="115" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/init.go">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1" />
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/models.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/conf/config.yaml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="44" lean-forward="true" selection-start-line="28" selection-start-column="44" selection-end-line="28" selection-end-column="44" />
+        <state relative-caret-position="495">
+          <caret line="35" column="1" lean-forward="true" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/wxpay/pay.go">
+    <entry file="file://$PROJECT_DIR$/main.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="31" column="35" lean-forward="true" selection-start-line="31" selection-start-column="35" selection-end-line="31" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/wxpay/refund.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="77" column="39" lean-forward="true" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/wxpay/wechatpay_type.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="66" column="5" selection-start-line="66" selection-start-column="5" selection-end-line="66" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/wxpay/wechatpay.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="62" column="23" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+        <state relative-caret-position="220">
+          <caret line="36" column="21" lean-forward="true" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
           <folding>
-            <element signature="e#19#189#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/xcx.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2083">
-          <caret line="129" column="36" lean-forward="true" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
-          <folding>
-            <element signature="e#19#173#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/handler/pay/wechatpay/wxNotice.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="20" column="47" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
-          <folding>
-            <element signature="e#19#150#0" expanded="true" />
+            <element signature="e#14#177#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -3,7 +3,8 @@ package wechatpay
 import (
 	"encoding/xml"
 	"fmt"
-	"ginweb/server/wxpay"
+	"ginweb/componet/pay/wxpayC"
+	"ginweb/server/payS/wxpayS"
 	"github.com/gin-gonic/gin"
 	"github.com/golang/glog"
 	"encoding/json"
@@ -12,17 +13,13 @@ import (
 )
 
 //微信扫码回调地址(gin框架)
-//func PayNotifyUrl(c *gin.Context)  {
-//	wechat_client.PaynotifyUrl(c)
-//}
-
 func PayNotifyUrl(c *gin.Context) {
 
 	body, err := ioutil.ReadAll(c.Request.Body)
 	if err != nil {
 		glog.Error(err, "read notify body error")
 	}
-	var wx_notify_req wxpay.PayNotifyResult
+	var wx_notify_req wxpayC.PayNotifyResult
 	err = xml.Unmarshal(body, &wx_notify_req)
 	if err != nil {
 		glog.Error(err, "read http body xml failed! err :"+err.Error())
@@ -49,7 +46,7 @@ func PayNotifyUrl(c *gin.Context) {
 	reqMap["attach"] = wx_notify_req.Attach
 	reqMap["time_end"] = wx_notify_req.TimeEnd
 
-	wechat_client = CreateOrder(wechat_client)
+	wechat_client = wxpayS.CreateOrder(wechat_client)
 	//进行签名校验
 	if wechat_client.VerifySign(reqMap, wx_notify_req.Sign) {
 		record, err := json.Marshal(wx_notify_req)

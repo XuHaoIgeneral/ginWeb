@@ -19,19 +19,18 @@ var (
 )
 
 func main() {
-
+	
 	pflag.Parse()
 	//init config about viper
 	if err := config.Init(*cfg); err != nil {
 		panic(err)
 	}
-
 	//初始化数据库
 	//models.Init()
-
+	
 	//set gin mode
 	gin.SetMode(viper.GetString("runmode"))
-
+	
 	//create the Gin engine
 	g := gin.New()
 
@@ -42,7 +41,6 @@ func main() {
 		g,
 		middlewares...,
 	)
-
 	//ping the server to make sure the router is working
 	go func() {
 		if err := pingServer(); err != nil {
@@ -56,7 +54,6 @@ func main() {
 }
 
 func pingServer() error {
-
 	for i := 0; i < viper.GetInt("max_ping_count"); i++ {
 		//ping the server by sending a get request to `/headlth `
 		resp, err := http.Get(viper.GetString("url") + "/sd/health")
