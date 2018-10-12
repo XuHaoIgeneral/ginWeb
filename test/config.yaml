@@ -1,0 +1,31 @@
+runmode: debug
+addr: :8848
+name: apiserver
+url: http://0.0.0.0:8848
+max_ping_count: 10
+log:
+  writers: file,stdout
+  logger_level: DEBUG
+  logger_file: log/ginweb.log
+  log_format_text: false
+  rollingPolicy: size
+  log_rotate_date: 1
+  log_rotate_size: 2048
+  log_backup_count: 7
+pgsql:
+  name: postgres
+  host: localhost
+  port: 5432
+  defaultDB: postgres
+  dbName: pg_test
+  user: postgres
+  password: 123
+wechat:
+  xcx:
+    appid: wxc1b28e67dc962984
+    secret: eb3e3b585b13fe57624983c0dd088bc5
+  pay:
+    mcid: 1487206792
+    apikey: 363f301726964df09f47b91e6e258bfc
+  WECHAT_NOTIFY_URL: https://sd.wlinno.com/pay/wx/return
+ase: astaxie12798akljzmknm.ahkjkljl;l
