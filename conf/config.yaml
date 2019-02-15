@@ -22,10 +22,10 @@ pgsql:
   password: 123
 wechat:
   xcx:
-    appid: wxc1b28e67dc962984
-    secret: eb3e3b585b13fe57624983c0dd088bc5
+    appid: ******
+    secret: ********
   pay:
-    mcid: 1487206792
-    apikey: 363f301726964df09f47b91e6e258bfc
-  WECHAT_NOTIFY_URL: https://sd.wlinno.com/pay/wx/return
-ase: astaxie12798akljzmknm.ahkjkljl;l
+    mcid: *****
+    apikey: *****
+  WECHAT_NOTIFY_URL: https://********.com
+ase: *******
